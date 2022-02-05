@@ -13,6 +13,7 @@ public class MenuMainManager : MonoBehaviour
     public int bestScore;
     public string bestScorePlayer;
 
+    public bool isEmpty = false;
     private void Awake()
     {
         if (Instance != null)
@@ -24,8 +25,6 @@ public class MenuMainManager : MonoBehaviour
         Instance = this;
         bestScore = 0;
         DontDestroyOnLoad(gameObject);
-        LoadScoreAndName();
-
     }
     public string GetBestScore()
     {
@@ -49,7 +48,7 @@ public class MenuMainManager : MonoBehaviour
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-        Debug.Log(data.PlayerName);
+        Debug.Log(Application.persistentDataPath);    
     }
 
     public void LoadScoreAndName()
@@ -63,6 +62,20 @@ public class MenuMainManager : MonoBehaviour
             playerName = data.PlayerName;
             bestScore = data.bestScore;
             bestScorePlayer = data.bestScorePlayer;
+            isEmpty = false;
         }
+        else
+        {
+            Debug.Log("No data");
+            isEmpty = true;
+        }
+    }
+    public void ResetData()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+
+        if (File.Exists(path) && File.ReadAllText(path) != null)
+            File.Delete(Application.persistentDataPath + "/savefile.json");
+        else Debug.Log("File is empty");
     }
 }

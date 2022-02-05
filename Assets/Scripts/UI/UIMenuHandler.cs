@@ -14,11 +14,9 @@ public class UIMenuHandler : MonoBehaviour
     public TMP_InputField inputField;
 
     public string playerName;
-
     public void Start()
     {
-        bestScoreText.text = MenuMainManager.Instance.GetBestScore();
-        inputField.text = MenuMainManager.Instance.playerName;
+        
     }
 
     public void StartNew()
@@ -36,12 +34,27 @@ public class UIMenuHandler : MonoBehaviour
 #endif
 
     }
-    public void SetPlayerName(string name)
+    
+    public void SaveClicked()
     {
-        playerName = name;
-    }
-    public void SaveNameClicked()
-    {
+        playerName = inputField.text;
         MenuMainManager.Instance.SaveScoreAndName();
+        bestScoreText.text = "Name was saved";
+    }
+
+    public void ResetClicked()
+    {
+        MenuMainManager.Instance.ResetData();
+        bestScoreText.text = "Data were reset!";
+
+
+    }
+    public void LoadClicked()
+    {
+        MenuMainManager.Instance.LoadScoreAndName();
+        if(MenuMainManager.Instance.isEmpty)
+            bestScoreText.text = "File is empty";
+        else
+            bestScoreText.text = MenuMainManager.Instance.GetBestScore();
     }
 }
