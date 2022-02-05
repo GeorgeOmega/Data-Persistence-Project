@@ -28,7 +28,7 @@ public class MenuMainManager : MonoBehaviour
     }
     public string GetBestScore()
     {
-        return $"Best Score : {bestScorePlayer} : {bestScore}";
+        return $"Best Score \n {bestScorePlayer} : {bestScore}";
     }
 
     [System.Serializable]
