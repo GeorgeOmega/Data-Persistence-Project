@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIMainHandler : UIMenuHandler
 {
-    public override void Exit()
+    public override void Exit() //POLYMORPHISM AND INHERITANCE
     {
         SceneManager.LoadScene(0);
     }

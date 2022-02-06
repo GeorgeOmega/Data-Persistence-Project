@@ -16,7 +16,7 @@ public class MenuMainManager : MonoBehaviour
     [SerializeField] public bool isEmpty = false;
     private void Awake()
     {
-        Singleton();
+        Singleton(); //ABSTRACTION
     }
 
     private void Singleton()

@@ -10,10 +10,10 @@ using UnityEditor;
 
 public class UIMenuHandler : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI bestScoreText;
-    [SerializeField] public TMP_InputField inputField;
+    [SerializeField] public TextMeshProUGUI bestScoreText; //ENCAPSULATION
+    [SerializeField] public TMP_InputField inputField;    //ENCAPSULATION
+    [SerializeField] public string playerName;            //ENCAPSULATION
 
-    [SerializeField] public string playerName;
 
     public void StartNew()
     {
@@ -21,6 +21,7 @@ public class UIMenuHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    //POLYMORPHISM
     public virtual void Exit()
     {
 #if UNITY_EDITOR
