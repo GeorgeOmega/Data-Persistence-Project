@@ -10,14 +10,10 @@ using UnityEditor;
 
 public class UIMenuHandler : MonoBehaviour
 {
-    public TextMeshProUGUI bestScoreText;
-    public TMP_InputField inputField;
+    [SerializeField] public TextMeshProUGUI bestScoreText;
+    [SerializeField] public TMP_InputField inputField;
 
-    public string playerName;
-    public void Start()
-    {
-        
-    }
+    [SerializeField] public string playerName;
 
     public void StartNew()
     {
@@ -25,7 +21,7 @@ public class UIMenuHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void Exit()
+    public virtual void Exit()
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();

@@ -7,14 +7,19 @@ using System.IO;
 
 public class MenuMainManager : MonoBehaviour
 {
-    public static MenuMainManager Instance;
-    public static TMP_InputField inputField;
-    public string playerName;
-    public int bestScore;
-    public string bestScorePlayer;
+    [SerializeField] public static MenuMainManager Instance;
+    [SerializeField] public static TMP_InputField inputField;
+    [SerializeField] public string playerName;
+    [SerializeField] public int bestScore;
+    [SerializeField] public string bestScorePlayer;
 
-    public bool isEmpty = false;
+    [SerializeField] public bool isEmpty = false;
     private void Awake()
+    {
+        Singleton();
+    }
+
+    private void Singleton()
     {
         if (Instance != null)
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIMainHandler : MonoBehaviour
+public class UIMainHandler : UIMenuHandler
 {
-    public void Exit()
+    public override void Exit()
     {
         SceneManager.LoadScene(0);
     }
